@@ -1,0 +1,39 @@
+apiVersion: apim.googleapis.com/v1
+kind: SpikeArrest
+metadata:
+  name: spike-arrest
+  namespace: apim
+spec:
+  identifier:
+    ref: request.header.name
+  useEffectiveCount: true
+  peakMessageRate:
+    value: "5pm"
+---
+apiVersion: apim.googleapis.com/v1
+kind: Javascript
+metadata:
+  name: js-add-headers
+  namespace: apim
+spec:
+  timeLimit: 2000
+  source: |
+    var sum = 10+1000;
+    context.setVariable("request.header.first", 10);
+    context.setVariable("request.header.second", 1000);
+    context.setVariable("request.header.sum", sum);
+---
+apiVersion: apim.googleapis.com/v1
+kind: AssignMessage
+metadata:
+  name: google-token-policy
+  namespace: apim
+spec:
+  setActions:
+    - authentication:
+        googleAccessToken:
+          scopes:
+            - 'https://www.googleapis.com/auth/cloud-platform'
+  AssignTo:
+    createNew: false
+    type: request
