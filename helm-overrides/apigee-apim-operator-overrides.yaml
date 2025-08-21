@@ -1,2 +1,3 @@
 projectId: "apigee-evoln-autopush-rapid"
+apigeeOrg: "apigee-evoln-autopush-rapid"
 serviceAccount: "apigee-apim-gsa@apigee-evoln-autopush-rapid.iam.gserviceaccount.com"
