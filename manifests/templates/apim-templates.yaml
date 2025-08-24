@@ -4,6 +4,8 @@ kind: ApimTemplate
 metadata:
   name: new-admin-template
   namespace: apim
+  annotations:
+    argocd.argoproj.io/sync-wave: "8"
 spec:
   apimTemplateRule:
     group: apim.googleapis.com
