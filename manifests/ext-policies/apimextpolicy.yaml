@@ -3,6 +3,8 @@ kind: APIMExtensionPolicy
 metadata:
   name: global-ext-lb1-apim-policy
   namespace: apim
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   location: global
   failOpen: false
