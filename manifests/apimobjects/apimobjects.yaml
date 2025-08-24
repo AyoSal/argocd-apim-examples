@@ -4,6 +4,8 @@ kind: APIProduct
 metadata:
   name: api-product
   namespace: apim
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   approvalType: auto
   description: Http bin GET calls for demo
@@ -26,6 +28,8 @@ kind: APIOperationSet
 metadata:
   name: item-set
   namespace: apim
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   apiProductRefs:
     - name: api-product
