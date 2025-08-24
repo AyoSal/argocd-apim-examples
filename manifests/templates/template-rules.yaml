@@ -3,6 +3,8 @@ kind: ApimTemplateRule
 metadata:
   name: template-rule
   namespace: apim
+  annotations:
+    argocd.argoproj.io/sync-wave: "7"
 spec:
   allowList: [SpikeArrest, Javascript, GenerateJWT, KVM, OASValidation, OAuthv2, ServiceCallout]
   requiredList: [AssignMessage]
