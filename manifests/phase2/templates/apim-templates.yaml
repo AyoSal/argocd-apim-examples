@@ -5,7 +5,7 @@ metadata:
   name: new-admin-template
   namespace: apim
   annotations:
-    argocd.argoproj.io/sync-wave: "8"
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   apimTemplateRule:
     group: apim.googleapis.com

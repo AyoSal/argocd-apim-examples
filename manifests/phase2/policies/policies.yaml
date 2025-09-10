@@ -4,7 +4,7 @@ metadata:
   name: spike-arrest
   namespace: apim
   annotations:
-    argocd.argoproj.io/sync-wave: "6"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   identifier:
     ref: request.header.name
@@ -18,7 +18,7 @@ metadata:
   name: js-add-headers
   namespace: apim
   annotations:
-    argocd.argoproj.io/sync-wave: "6"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   timeLimit: 2000
   source: |
@@ -33,7 +33,7 @@ metadata:
   name: google-token-policy
   namespace: apim
   annotations:
-    argocd.argoproj.io/sync-wave: "6"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   setActions:
     - authentication:
