@@ -22,7 +22,7 @@ spec:
           releaseName: apigee-apim-operator-helm
           valueFiles:
           - $values/helm-overrides/apigee-apim-operator-overrides.yaml
-      - repoURL: https://github.com/njyeti/argocd-apim-examples.git
+      - repoURL: https://github.com/ayosal/argocd-apim-examples.git
         targetRevision: HEAD
         ref: values
       destination:
