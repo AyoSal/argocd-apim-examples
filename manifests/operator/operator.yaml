@@ -1,1 +1,34 @@
-1
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apigee-apim-operator-helm-appset
+  namespace: argocd
+spec:
+  generators:
+  - list:
+      elements:
+      - version: 1.0.0
+  template:
+    metadata:
+      name: apigee-apim-operator-helm
+      namespace: argocd
+    spec:
+      project: default
+      sources:
+      - repoURL: us-docker.pkg.dev/apigee-release/apigee-k8s-tooling-helm-charts
+        chart: apigee-apim-operator-helm
+        targetRevision: '{{version}}'
+        helm:
+          releaseName: apigee-apim-operator-helm
+          valueFiles:
+          - $values/helm-overrides/apigee-apim-operator-overrides.yaml
+      - repoURL: https://github.com/njyeti/argocd-apim-examples.git
+        targetRevision: HEAD
+        ref: values
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: apim
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
