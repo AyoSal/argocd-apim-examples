@@ -1,3 +1,4 @@
 projectId: "dynolab-integration"
 apigeeOrg: "dynolab-integration"
 serviceAccount: "apigee-apim-gsa@dynolab-integration.iam.gserviceaccount.com"
+generateEnv: "true"
